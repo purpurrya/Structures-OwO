@@ -4,12 +4,12 @@ using namespace std;
 
 class Heap {
 private:
-    vector <int> array;
+    vector<int> array;
 public:
     Heap(int n) {
         array.push_back(n);
     }
-    Heap(vector <int> array) {
+    Heap(vector<int> array) {
         for (int i : array) { 
             add(i);
         }
@@ -64,7 +64,7 @@ public:
 };
 
 int main() {
-    vector <int> v = { 10,7,8,2,1,2,1 };
+    vector<int> v = { 10,7,8,2,1,2,1 };
     Heap k(v);
     k.print();
     k.del();
