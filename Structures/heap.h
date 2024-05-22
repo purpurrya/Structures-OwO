@@ -2,14 +2,14 @@
 #include <vector>
 using namespace std;
 
-class Kucha {
+class Heap {
 private:
     vector <int> array;
 public:
-    Kucha(int n) {
+    Heap(int n) {
         array.push_back(n); //добавление в конец вектора
     }
-    Kucha(vector <int> array) {
+    Heap(vector <int> array) {
         for (int i : array) { //перебор вектора (замена i на элемент вектора)
             add(i);
         }
@@ -65,20 +65,8 @@ public:
 
 int main() {
     vector <int> v = { 10,7,8,2,1,2,1 };
-    Kucha k(v);
-    //Kucha kucha; //экземпляр класса
-    k.print();
-    k.del();
-    k.print();
-    k.del();
-    k.print();
-    k.del();
-    k.print();
-    k.del();
-    k.print();
-    k.del();
-    k.print();
-    k.del();
+    Heap k(v);
+    //Heap heap; //экземпляр класса
     k.print();
     k.del();
 }
