@@ -7,17 +7,17 @@ private:
     vector <int> array;
 public:
     Heap(int n) {
-        array.push_back(n); //добавление в конец вектора
+        array.push_back(n);
     }
     Heap(vector <int> array) {
-        for (int i : array) { //перебор вектора (замена i на элемент вектора)
+        for (int i : array) { 
             add(i);
         }
     }
 
     void add(int n) {
         array.push_back(n);
-        int ind = array.size() - 1; //индекс последнего добавленного элемента
+        int ind = array.size() - 1; 
         while (array[ind] > array[(ind - 1) / 2]) {
             swap(array[ind], array[(ind - 1) / 2]);
             ind = (ind - 1) / 2;
@@ -30,7 +30,7 @@ public:
 
     void del() {
         swap(array[0], array.back());
-        array.pop_back(); //удаление последнего элемента
+        array.pop_back(); 
         int ind = 0;
         int m_ind;
         while (!(ind * 2 + 1 > array.size() - 1 || ind * 2 + 2 > array.size() - 1)) {
@@ -66,7 +66,6 @@ public:
 int main() {
     vector <int> v = { 10,7,8,2,1,2,1 };
     Heap k(v);
-    //Heap heap; //экземпляр класса
     k.print();
     k.del();
 }
