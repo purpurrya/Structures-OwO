@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include "heap.h"
-using namespace std;
 
 Heap::Heap(int n) {
     array.push_back(n);
