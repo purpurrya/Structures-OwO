@@ -4,10 +4,10 @@ using namespace std;
 
 class Heap {
 private:
-    vector<int> array;
+    std::vector<int> array;
 public:
     Heap(int n);
-    Heap(vector<int> array);
+    Heap(std::vector<int> array);
     void add(int n);
     int get();
     void del();

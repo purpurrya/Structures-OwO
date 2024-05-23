@@ -6,7 +6,7 @@ using namespace std;
 Heap::Heap(int n) {
     array.push_back(n);
 }
-Heap::Heap(vector<int> array) {
+Heap::Heap(std::vector<int> array) {
     for (int i : array) {
         add(i);
     }
@@ -15,7 +15,7 @@ void Heap::add(int n) {
     array.push_back(n);
     int ind = array.size() - 1;
     while (array[ind] > array[(ind - 1) / 2]) {
-        swap(array[ind], array[(ind - 1) / 2]);
+        std::swap(array[ind], array[(ind - 1) / 2]);
         ind = (ind - 1) / 2;
     }
 }
@@ -41,16 +41,16 @@ void Heap::del() {
         if (next == ind) {
             break;
         }
-        swap(array[ind], array[next]);
+        std::swap(array[ind], array[next]);
         ind = next;
     }
 }
 
 void Heap::print() {
     for (int i : array) {
-        cout << i << " ";
+        std::cout << i << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
 }
 
 int Heap::get() {
@@ -58,7 +58,7 @@ int Heap::get() {
     }
 
 void Heap::del() {
-    swap(array[0], array.back());
+    std::swap(array[0], array.back());
     array.pop_back();
     int ind = 0;
     int m_ind;
@@ -72,20 +72,20 @@ void Heap::del() {
         if (array[ind] > array[m_ind]) {
             m_ind = ind;
         }
-        swap(array[ind], array[m_ind]);
+        std::swap(array[ind], array[m_ind]);
         if (m_ind == ind) {
             break;
         }
         ind = m_ind;
     }
     if (2 * ind + 1 == array.size() - 1 && array[ind] < array[2 * ind + 1]) {
-        swap(array[ind], array[2 * ind + 1]);
+        std::swap(array[ind], array[2 * ind + 1]);
     }
 }
 
 void Heap::print() {
     for (int i : array) {
-        cout << i << " ";
+        std::cout << i << " ";
     }
-    cout << endl;
+    std::cout << std::endl;
 }
