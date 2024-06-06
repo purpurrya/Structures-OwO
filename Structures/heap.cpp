@@ -5,11 +5,7 @@
 Heap::Heap(int n) {
     array.push_back(n);
 }
-Heap::Heap(std::vector<int> array) {
-    for (int i : array) {
-        add(i);
-    }
-}
+Heap::Heap(std::vector<int>& a) : array(a.begin(), a.end()) {}
 void Heap::add(int n) {
     array.push_back(n);
     int ind = array.size() - 1;
@@ -19,44 +15,11 @@ void Heap::add(int n) {
     }
 }
 
-int Heap::get() {
+int Heap::top() {
     return array[0];
 }
 
-void Heap::del() {
-    array[0] = array.back();
-    array.pop_back();
-    int ind = 0;
-    while (2 * ind + 1 < array.size()) {
-        int left = 2 * ind + 1;
-        int right = 2 * ind + 2;
-        int next = ind;
-        if (array[left] > array[ind]) {
-            next = left;
-        }
-        if (right < array.size() && array[right] > array[next]) {
-            next = right;
-        }
-        if (next == ind) {
-            break;
-        }
-        std::swap(array[ind], array[next]);
-        ind = next;
-    }
-}
-
-void Heap::print() {
-    for (int i : array) {
-        std::cout << i << " ";
-    }
-    std::cout << std::endl;
-}
-
-int Heap::get() {
-        return array[0];
-    }
-
-void Heap::del() {
+void Heap::pop() {
     std::swap(array[0], array.back());
     array.pop_back();
     int ind = 0;

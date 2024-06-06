@@ -1,9 +1,10 @@
 #include <iostream>
 #include "heap.h"
 
-int main() {
-    std::vector<int> v = { 10,7,8,2,1,2,1};
+int zero_elements() {
+    std::vector<int> v = { };
     Heap h(v);
     h.print();
-    h.pop();
+    return 0;
 }
+
