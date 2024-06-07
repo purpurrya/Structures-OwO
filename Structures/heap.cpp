@@ -6,10 +6,11 @@ Heap::Heap(int n) {
     array.push_back(n);
 }
 Heap::Heap(std::vector<int>& a) : array(a.begin(), a.end()) {}
+
 void Heap::add(int n) {
     array.push_back(n);
     int ind = array.size() - 1;
-    while (array[ind] > array[(ind - 1) / 2]) {
+    while (ind > 0 && array[ind] > array[(ind - 1) / 2]) {
         std::swap(array[ind], array[(ind - 1) / 2]);
         ind = (ind - 1) / 2;
     }
@@ -20,6 +21,9 @@ int Heap::top() {
 }
 
 void Heap::pop() {
+    if (array.empty()) {
+        return;
+    }
     std::swap(array[0], array.back());
     array.pop_back();
     int ind = 0;
